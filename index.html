@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAP - Healthcare Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #003B5C;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --background: #f8f9fa;
+            --spacing-unit: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 3);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            padding: calc(var(--spacing-unit) * 2) 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            color: var(--text-light);
+            font-size: 24px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 4);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            padding-top: calc(var(--spacing-unit) * 8);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title-container {
+            margin-bottom: calc(var(--spacing-unit) * 6);
+        }
+
+        .hero-title {
+            font-size: 120px;
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .hero-title-full {
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .hero-subtitle {
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            opacity: 0.9;
+        }
+
+        .hero-text {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--text-light);
+            max-width: 500px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .section {
+            padding: calc(var(--spacing-unit) * 12) 0;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            letter-spacing: -1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+        }
+
+        .card {
+            background: white;
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .card-text {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 80px;
+            }
+
+            .hero-title-full {
+                font-size: 20px;
+            }
+
+            .hero-subtitle {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 60px;
+            }
+
+            .hero-subtitle {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+        }
+
+        /* Remove all Publications Styles */
+        .publications-list,
+        .publication-item,
+        .publication-title,
+        .publication-authors,
+        .publication-journal,
+        .publication-meta,
+        .publication-tag,
+        .publication-link {
+            /* Remove these styles */
+        }
+
+        /* Network Diagram */
+        .network-diagram {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .network-diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .central-node {
+            fill: var(--primary);
+            stroke: var(--text-light);
+            stroke-width: 3;
+        }
+
+        .computational-node {
+            fill: #00A6ED;
+            stroke: var(--text-light);
+            stroke-width: 2;
+        }
+
+        .experimental-node {
+            fill: #10b981;
+            stroke: var(--text-light);
+            stroke-width: 2;
+        }
+
+        .connection {
+            stroke: var(--primary);
+            stroke-width: 2;
+            stroke-dasharray: 10,5;
+            opacity: 0.7;
+        }
+
+        .node-text {
+            fill: var(--text-light);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        /* Capabilities Section */
+        .capabilities {
+            padding: calc(var(--spacing-unit) * 12) 0;
+            background: var(--background);
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+            margin-top: calc(var(--spacing-unit) * 8);
+        }
+
+        .capability-card {
+            background: white;
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .capability-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .capability-title {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .capability-text {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Add styles for new elements */
+        .section-subtitle {
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--primary);
+            margin: calc(var(--spacing-unit) * 8) 0 calc(var(--spacing-unit) * 4);
+            letter-spacing: -0.5px;
+        }
+
+        .capability-list {
+            margin-top: calc(var(--spacing-unit) * 2);
+            padding-left: calc(var(--spacing-unit) * 3);
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .capability-list li {
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+
+        /* Adjust spacing for first subtitle */
+        .capabilities .section-subtitle:first-of-type {
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        /* Contact Section Styles */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--text-dark);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+            background: var(--primary);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            background: var(--primary-light);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">TAP</a>
+            <ul class="nav-links">
+                <li><a href="#problem">The Challenge</a></li>
+                <li><a href="#foundation">Scientific Foundation</a></li>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-title-container">
+                <h1 class="hero-title">TAP</h1>
+                <div class="hero-title-full">The Answer Project</div>
+            </div>
+            <h2 class="hero-subtitle">Distributed AI-Native Drug Discovery</h2>
+            <p class="hero-text">We are reimagining pharmaceutical discovery through a distributed network that combines AI-driven predictions with rapid empirical validation. Our platform integrates static infrastructure, dynamic discovery flows, continuous learning loops, and strategic deployment to accelerate therapeutic development across all therapeutic areas.</p>
+        </div>
+    </section>
+
+    <section id="problem" class="section">
+        <div class="container">
+            <h2 class="section-title">The Challenge</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">High Failure Rates</h3>
+                    <p class="card-text">Traditional drug discovery faces a 90% failure rate in clinical trials, with billions spent on candidates that ultimately fail. This inefficiency stems from poor prediction of drug behavior in human systems.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Time and Cost</h3>
+                    <p class="card-text">The average time from target discovery to approved drug spans 10-15 years, costing over $2.5 billion. This lengthy process delays critical treatments from reaching patients in need.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Limited Validation</h3>
+                    <p class="card-text">Current approaches often rely too heavily on either computational or experimental methods alone, missing the benefits of rapid empirical validation of computational predictions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="foundation" class="section capabilities">
+        <div class="container">
+            <h2 class="section-title">Scientific Foundation</h2>
+            
+            <!-- 1. Static: Foundation -->
+            <h3 class="section-subtitle">Network Foundation</h3>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">N</div>
+                    <h3 class="capability-title">Distributed Network</h3>
+                    <p class="capability-text">We coordinate a distributed network of world-class talent, cutting-edge technologies, and leading institutions. Our in-house capabilities are amplified through strategic partnerships with:</p>
+                    <ul class="capability-list">
+                        <li>Academic research institutions</li>
+                        <li>Contract research organizations</li>
+                        <li>Clinical research centers</li>
+                        <li>Industry partners</li>
+                    </ul>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">D</div>
+                    <h3 class="capability-title">Deep Learning Infrastructure</h3>
+                    <p class="capability-text">Built from the ground up with AI/ML at the core. Our computational infrastructure spans across our network, enabling distributed processing and model deployment.</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">O</div>
+                    <h3 class="capability-title">Network Orchestration</h3>
+                    <p class="capability-text">Seamless coordination of distributed capabilities through our orchestration platform, ensuring efficient resource allocation and communication across all network nodes.</p>
+                </div>
+            </div>
+
+            <!-- 2. Flow: Dynamic Process -->
+            <h3 class="section-subtitle">Discovery Flow</h3>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">P</div>
+                    <h3 class="capability-title">Portfolio Strategy</h3>
+                    <p class="capability-text">Our therapeutic area-agnostic approach enables risk diversification across multiple programs, optimizing resource allocation while maintaining balanced risk exposure.</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">A</div>
+                    <h3 class="capability-title">Accelerated Timeline</h3>
+                    <p class="capability-text">Parallel processing across our network accelerates discovery timelines. Our learn-fast/kill-fast approach enables rapid decision-making and program advancement.</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">D</div>
+                    <h3 class="capability-title">Development Pipeline</h3>
+                    <p class="capability-text">Continuous flow from target discovery through preclinical and clinical development, with computational predictions guiding each stage.</p>
+                </div>
+            </div>
+
+            <!-- 3. Loop: Iterative Learning -->
+            <h3 class="section-subtitle">Empirical Loop</h3>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">F</div>
+                    <h3 class="capability-title">AI/ML Feedback</h3>
+                    <p class="capability-text">Every experimental result feeds back into our AI models, creating a continuous learning loop that improves predictive accuracy across our entire network.</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">V</div>
+                    <h3 class="capability-title">Validation Cycle</h3>
+                    <p class="capability-text">Rapid empirical validation of computational predictions, with results immediately informing model refinement and next-round predictions.</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">O</div>
+                    <h3 class="capability-title">Precision Optimization</h3>
+                    <p class="capability-text">Iterative refinement of both computational models and experimental approaches, continuously improving the accuracy and efficiency of our discovery process.</p>
+                </div>
+            </div>
+
+            <!-- 4. Deploy: External Interface -->
+            <h3 class="section-subtitle">External Deployment</h3>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">S</div>
+                    <h3 class="capability-title">Strategic Partnerships</h3>
+                    <p class="capability-text">Active engagement with pharmaceutical partners, leveraging our platform to accelerate and de-risk their development programs.</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">C</div>
+                    <h3 class="capability-title">Clinical Translation</h3>
+                    <p class="capability-text">Seamless transition from discovery to clinical development through our network of clinical research organizations and medical institutions.</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">M</div>
+                    <h3 class="capability-title">Market Interface</h3>
+                    <p class="capability-text">Strategic commercialization through established industry networks, ensuring successful market access and therapeutic deployment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="platform" class="section">
+        <div class="container">
+            <h2 class="section-title">Platform</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">Distributed Infrastructure</h3>
+                    <p class="card-text">Our platform orchestrates a global network of computational and experimental capabilities, enabling seamless integration of AI-driven predictions with rapid empirical validation.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Continuous Learning</h3>
+                    <p class="card-text">Every experimental result feeds back into our AI models, creating a continuous learning loop that improves predictive accuracy across the entire network.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Strategic Deployment</h3>
+                    <p class="card-text">Seamless transition from discovery to development through our network of clinical research organizations and industry partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <p>Interested in learning more about TAP or exploring potential collaborations? We'd love to hear from you.</p>
+                <a href="mailto:contact@tap.bio" class="contact-button">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 
