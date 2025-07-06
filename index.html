@@ -32,7 +32,8 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 calc(var(--spacing-unit) * 3);
+            padding: 0 calc(var(--spacing-unit) * 4);
+            width: 100%;
         }
 
         nav {
@@ -80,58 +81,69 @@
         }
 
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            background: var(--primary);
+            background: #003B5C; /* Darker blue to match image */
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            padding: 120px 0;
         }
 
         .hero-content {
-            padding-top: calc(var(--spacing-unit) * 8);
             position: relative;
             z-index: 2;
+            max-width: 1200px; /* Increased for wider text blocks */
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 40px;
         }
 
         .hero-title-container {
-            margin-bottom: calc(var(--spacing-unit) * 6);
+            text-align: left;
+            margin-bottom: calc(var(--spacing-unit) * 8);
+            width: 100%;
         }
 
         .hero-title {
-            font-size: 120px;
+            display: block;
+            font-size: 180px;
             font-weight: 700;
             color: var(--text-light);
             line-height: 1;
             letter-spacing: -2px;
             margin-bottom: calc(var(--spacing-unit) * 2);
+            text-align: left;
         }
 
         .hero-title-full {
-            font-size: 24px;
+            font-size: 25px;
             font-weight: 300;
             color: var(--text-light);
             letter-spacing: 2px;
             text-transform: uppercase;
-            opacity: 0.9;
+            text-align: left;
+            margin-bottom: calc(var(--spacing-unit) * 8);
         }
 
         .hero-subtitle {
-            font-size: 32px;
+            font-size: 40px;
             font-weight: 300;
             color: var(--text-light);
-            max-width: 600px;
-            margin-bottom: calc(var(--spacing-unit) * 6);
-            opacity: 0.9;
+            max-width: 1100px;
+            margin: 0 0 calc(var(--spacing-unit) * 8);
+            line-height: 1.4;
+            text-align: left;
         }
 
         .hero-text {
-            font-size: 18px;
+            font-size: 25px;
             font-weight: 300;
             color: var(--text-light);
-            max-width: 500px;
+            max-width: 1000px;
             opacity: 0.8;
             line-height: 1.6;
+            text-align: left;
         }
 
         .section {
@@ -173,16 +185,16 @@
             line-height: 1.6;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
             .hero-title {
-                font-size: 80px;
+                font-size: 140px;
             }
-
-            .hero-title-full {
-                font-size: 20px;
-            }
-
+            
             .hero-subtitle {
+                font-size: 42px;
+            }
+            
+            .hero-text {
                 font-size: 28px;
             }
         }
@@ -193,10 +205,14 @@
             }
 
             .hero-title {
-                font-size: 60px;
+                font-size: 100px;
             }
-
+            
             .hero-subtitle {
+                font-size: 36px;
+            }
+            
+            .hero-text {
                 font-size: 24px;
             }
 
@@ -288,16 +304,7 @@
         }
 
         .capability-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: calc(var(--spacing-unit) * 3);
-            background: var(--primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
+            display: none;
         }
 
         .capability-title {
@@ -371,6 +378,116 @@
             transform: translateY(-2px);
             background: var(--primary-light);
         }
+
+        /* Add new styles for value proposition */
+        .value-prop {
+            margin: calc(var(--spacing-unit) * 8) auto 0;
+            padding: calc(var(--spacing-unit) * 4) 0 calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 4);
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
+            max-width: 1000px;
+        }
+
+        .value-prop-text {
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--text-light);
+            opacity: 1;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        /* Team Section Styles */
+        .team-section {
+            background: var(--background);
+            padding: calc(var(--spacing-unit) * 12) 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+            margin-top: calc(var(--spacing-unit) * 6);
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .member-info {
+            padding: calc(var(--spacing-unit) * 3);
+        }
+
+        .member-name {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+
+        .member-linkedin {
+            display: inline-block;
+            color: #0077b5;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        .member-linkedin:hover {
+            opacity: 1;
+        }
+
+        .member-bio {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        /* Section Separator */
+        .section-separator {
+            width: 100%;
+            height: 200px;
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        .section-separator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 59, 92, 0.7); /* Matches primary color with opacity */
+        }
     </style>
 </head>
 <body>
@@ -378,9 +495,10 @@
         <div class="container nav-content">
             <a href="#" class="nav-logo">TAP</a>
             <ul class="nav-links">
-                <li><a href="#problem">The Challenge</a></li>
+                <li><a href="#technical">Technical Overview</a></li>
                 <li><a href="#foundation">Scientific Foundation</a></li>
                 <li><a href="#platform">Platform</a></li>
+                <li><a href="#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -390,32 +508,76 @@
         <div class="container hero-content">
             <div class="hero-title-container">
                 <h1 class="hero-title">TAP</h1>
-                <div class="hero-title-full">The Answer Project</div>
+                <div class="hero-title-full">THE ANSWER PROJECT</div>
             </div>
-            <h2 class="hero-subtitle">Distributed AI-Native Drug Discovery</h2>
-            <p class="hero-text">We are reimagining pharmaceutical discovery through a distributed network that combines AI-driven predictions with rapid empirical validation. Our platform integrates static infrastructure, dynamic discovery flows, continuous learning loops, and strategic deployment to accelerate therapeutic development across all therapeutic areas.</p>
+            <h2 class="hero-subtitle">AI-Native Drug Discovery</h2>
+            <p class="hero-text">Building intelligent networks that connect global expertise, computational models, and experimental capabilities. Our platform integrates dynamic discovery flows, continuous learning loops, and strategic deployment to accelerate therapeutic development.</p>
+            
+            <div class="value-prop">
+                <div class="value-prop-text">Distributed innovation networks + multi-objective optimization = breakthrough therapeutics</div>
+            </div>
         </div>
     </section>
 
-    <section id="problem" class="section">
+    <div class="section-separator"></div>
+
+    <section id="technical" class="section">
         <div class="container">
-            <h2 class="section-title">The Challenge</h2>
+            <h2 class="section-title">Technical Overview</h2>
             <div class="grid">
                 <div class="card">
-                    <h3 class="card-title">High Failure Rates</h3>
-                    <p class="card-text">Traditional drug discovery faces a 90% failure rate in clinical trials, with billions spent on candidates that ultimately fail. This inefficiency stems from poor prediction of drug behavior in human systems.</p>
+                    <h3 class="card-title">AI-Native Architecture</h3>
+                    <p class="card-text">Our platform is built from the ground up as an AI-native system, creating intelligent networks that connect global expertise, computational models, and experimental capabilities. This reveals optimal collaborations and breakthrough opportunities that traditional siloed approaches cannot identify.</p>
                 </div>
                 <div class="card">
-                    <h3 class="card-title">Time and Cost</h3>
-                    <p class="card-text">The average time from target discovery to approved drug spans 10-15 years, costing over $2.5 billion. This lengthy process delays critical treatments from reaching patients in need.</p>
+                    <h3 class="card-title">Meta-Learning System</h3>
+                    <p class="card-text">Each collaboration teaches the network how to form better connections, transforming drug discovery into a continuously improving, distributed intelligence. Our system doesn't just learn about molecules—it learns how to optimize the innovation process itself.</p>
                 </div>
                 <div class="card">
-                    <h3 class="card-title">Limited Validation</h3>
-                    <p class="card-text">Current approaches often rely too heavily on either computational or experimental methods alone, missing the benefits of rapid empirical validation of computational predictions.</p>
+                    <h3 class="card-title">Network Effects</h3>
+                    <p class="card-text">Our network-based approach unlocks powerful effects where each new participant makes the entire system exponentially more capable at discovering breakthrough medicines. The network grows smarter with every interaction.</p>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle">Core Technologies</h3>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <h3 class="capability-title">Advanced AI Models</h3>
+                    <p class="capability-text">Our platform leverages state-of-the-art AI architectures:</p>
+                    <ul class="capability-list">
+                        <li>Transformer architectures for molecular sequence analysis</li>
+                        <li>Convolutional Neural Networks (CNN) for structural imaging</li>
+                        <li>Bayesian optimization for experimental design</li>
+                        <li>Multi-modal learning across chemical and biological spaces</li>
+                    </ul>
+                </div>
+                
+                <div class="capability-card">
+                    <h3 class="capability-title">System Architecture</h3>
+                    <p class="capability-text">Built on modern architectural principles:</p>
+                    <ul class="capability-list">
+                        <li>Event-driven architecture for real-time processing</li>
+                        <li>Distributed computing for model training</li>
+                        <li>Scalable microservices deployment</li>
+                        <li>High-throughput data pipelines</li>
+                    </ul>
+                </div>
+                
+                <div class="capability-card">
+                    <h3 class="capability-title">Integration Capabilities</h3>
+                    <p class="capability-text">Comprehensive integration across:</p>
+                    <ul class="capability-list">
+                        <li>Computer vision for experimental analysis</li>
+                        <li>Automated laboratory systems</li>
+                        <li>Molecular modeling platforms</li>
+                        <li>Clinical data systems</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="section-separator"></div>
 
     <section id="foundation" class="section capabilities">
         <div class="container">
@@ -425,7 +587,7 @@
             <h3 class="section-subtitle">Network Foundation</h3>
             <div class="capabilities-grid">
                 <div class="capability-card">
-                    <div class="capability-icon">N</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Distributed Network</h3>
                     <p class="capability-text">We coordinate a distributed network of world-class talent, cutting-edge technologies, and leading institutions. Our in-house capabilities are amplified through strategic partnerships with:</p>
                     <ul class="capability-list">
@@ -437,13 +599,13 @@
                 </div>
                 
                 <div class="capability-card">
-                    <div class="capability-icon">D</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Deep Learning Infrastructure</h3>
                     <p class="capability-text">Built from the ground up with AI/ML at the core. Our computational infrastructure spans across our network, enabling distributed processing and model deployment.</p>
                 </div>
                 
                 <div class="capability-card">
-                    <div class="capability-icon">O</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Network Orchestration</h3>
                     <p class="capability-text">Seamless coordination of distributed capabilities through our orchestration platform, ensuring efficient resource allocation and communication across all network nodes.</p>
                 </div>
@@ -453,19 +615,19 @@
             <h3 class="section-subtitle">Discovery Flow</h3>
             <div class="capabilities-grid">
                 <div class="capability-card">
-                    <div class="capability-icon">P</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Portfolio Strategy</h3>
                     <p class="capability-text">Our therapeutic area-agnostic approach enables risk diversification across multiple programs, optimizing resource allocation while maintaining balanced risk exposure.</p>
                 </div>
                 
                 <div class="capability-card">
-                    <div class="capability-icon">A</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Accelerated Timeline</h3>
                     <p class="capability-text">Parallel processing across our network accelerates discovery timelines. Our learn-fast/kill-fast approach enables rapid decision-making and program advancement.</p>
                 </div>
                 
                 <div class="capability-card">
-                    <div class="capability-icon">D</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Development Pipeline</h3>
                     <p class="capability-text">Continuous flow from target discovery through preclinical and clinical development, with computational predictions guiding each stage.</p>
                 </div>
@@ -475,19 +637,19 @@
             <h3 class="section-subtitle">Empirical Loop</h3>
             <div class="capabilities-grid">
                 <div class="capability-card">
-                    <div class="capability-icon">F</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">AI/ML Feedback</h3>
                     <p class="capability-text">Every experimental result feeds back into our AI models, creating a continuous learning loop that improves predictive accuracy across our entire network.</p>
                 </div>
                 
                 <div class="capability-card">
-                    <div class="capability-icon">V</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Validation Cycle</h3>
                     <p class="capability-text">Rapid empirical validation of computational predictions, with results immediately informing model refinement and next-round predictions.</p>
                 </div>
                 
                 <div class="capability-card">
-                    <div class="capability-icon">O</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Precision Optimization</h3>
                     <p class="capability-text">Iterative refinement of both computational models and experimental approaches, continuously improving the accuracy and efficiency of our discovery process.</p>
                 </div>
@@ -497,25 +659,27 @@
             <h3 class="section-subtitle">External Deployment</h3>
             <div class="capabilities-grid">
                 <div class="capability-card">
-                    <div class="capability-icon">S</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Strategic Partnerships</h3>
                     <p class="capability-text">Active engagement with pharmaceutical partners, leveraging our platform to accelerate and de-risk their development programs.</p>
                 </div>
                 
                 <div class="capability-card">
-                    <div class="capability-icon">C</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Clinical Translation</h3>
                     <p class="capability-text">Seamless transition from discovery to clinical development through our network of clinical research organizations and medical institutions.</p>
                 </div>
                 
                 <div class="capability-card">
-                    <div class="capability-icon">M</div>
+                    <div class="capability-icon"></div>
                     <h3 class="capability-title">Market Interface</h3>
                     <p class="capability-text">Strategic commercialization through established industry networks, ensuring successful market access and therapeutic deployment.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="section-separator"></div>
 
     <section id="platform" class="section">
         <div class="container">
@@ -537,14 +701,210 @@
         </div>
     </section>
 
+    <div class="section-separator"></div>
+
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Background in computational biology and machine learning. Previously led AI research teams at leading pharmaceutical companies.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Expert in medicinal chemistry with 15+ years experience in drug development and clinical trials.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Specialized in deep learning architectures and distributed systems. Previously architected large-scale ML platforms.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4-20 -->
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Expert in AI/ML with focus on drug discovery pipelines and molecular modeling.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Computational chemist specializing in molecular dynamics and structure-based drug design.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Lead software architect with expertise in distributed systems and cloud infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Data scientist focused on biomarker discovery and patient stratification.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Clinical research expert with extensive experience in trial design and execution.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Machine learning engineer specializing in computer vision and image analysis.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Bioinformatics specialist with focus on genomics and proteomics data analysis.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Systems biology expert specializing in pathway analysis and network modeling.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Research scientist with expertise in high-throughput screening and assay development.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">AI researcher focused on reinforcement learning and automated experiment design.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Product manager with background in pharmaceutical development and commercialization.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Regulatory affairs specialist with expertise in FDA/EMA submissions.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Business development lead with extensive pharma industry network.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Operations manager specializing in laboratory automation and workflow optimization.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Quality assurance expert with focus on GMP compliance and documentation.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Project manager with experience in multi-site clinical trials coordination.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Name Here</h3>
+                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Data engineer specializing in pipeline development and data infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
     <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Contact</h2>
             <div class="contact-content">
-                <p>Interested in learning more about TAP or exploring potential collaborations? We'd love to hear from you.</p>
-                <a href="mailto:contact@tap.bio" class="contact-button">Get in Touch</a>
+                <p>TAP engages with partners by referral.</p>
             </div>
         </div>
     </section>
+
+
 </body>
 </html> 
