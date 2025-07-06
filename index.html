@@ -404,16 +404,16 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: calc(var(--spacing-unit) * 4);
-            margin-top: calc(var(--spacing-unit) * 6);
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
         }
 
         .team-member {
-            background: white;
+            background: #ffffff;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
@@ -421,43 +421,29 @@
             transform: translateY(-5px);
         }
 
-        .member-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            background: #f0f0f0;
-        }
-
         .member-info {
-            padding: calc(var(--spacing-unit) * 3);
+            text-align: center;
         }
 
         .member-name {
-            font-size: 24px;
-            font-weight: 500;
-            color: var(--primary);
-            margin-bottom: calc(var(--spacing-unit) * 1);
+            font-size: 1.25rem;
+            color: #333;
+            margin: 0.5rem 0;
         }
 
         .member-linkedin {
             display: inline-block;
             color: #0077b5;
             text-decoration: none;
-            font-size: 14px;
-            margin-bottom: calc(var(--spacing-unit) * 2);
-            opacity: 0.9;
-            transition: opacity 0.2s ease;
-        }
-
-        .member-linkedin:hover {
-            opacity: 1;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
         }
 
         .member-bio {
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-dark);
-            opacity: 0.9;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0.5rem 0;
         }
 
         @media (max-width: 768px) {
@@ -709,185 +695,180 @@
             <div class="team-grid">
                 <!-- Team Member 1 -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Background in computational biology and machine learning. Previously led AI research teams at leading pharmaceutical companies.</p>
+                        <h3 class="member-name">Andrew Francis</h3>
+                        <p class="member-bio">Founder • Distributed Innovation • Entrepreneur, Impact Investor</p>
                     </div>
                 </div>
 
-                <!-- Team Member 2 -->
+                <!-- John Baldoni -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Expert in medicinal chemistry with 15+ years experience in drug development and clinical trials.</p>
+                        <h3 class="member-name">John Baldoni, PhD</h3>
+                        <a href="https://linkedin.com/in/john-baldoni-gsk" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Senior Pharma Leadership • AI-driven Drug Discovery, Portfolio • Platform Technology and Science, GSK</p>
                     </div>
                 </div>
 
-                <!-- Team Member 3 -->
+                <!-- Joe Camardo -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Specialized in deep learning architectures and distributed systems. Previously architected large-scale ML platforms.</p>
+                        <h3 class="member-name">Joe Camardo, MD</h3>
+                        <a href="https://www.linkedin.com/in/joe-camardo-3540aa15/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Medical Strategy • CMO, ADC Therapeutics • SVP, Celgene, Pfizer, Wyeth</p>
                     </div>
                 </div>
 
-                <!-- Team Member 4-20 -->
+                <!-- Amar Sahay -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Expert in AI/ML with focus on drug discovery pipelines and molecular modeling.</p>
+                        <h3 class="member-name">Amar Sahay, PhD</h3>
+                        <a href="https://www.linkedin.com/in/amar-sahay-57532a2/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Neuroscience, Brain Plasticity • Professor, Harvard Medical School • Massachusetts General Hospital, BROAD Institute</p>
                     </div>
                 </div>
 
+                <!-- Grant Bourzikas -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Computational chemist specializing in molecular dynamics and structure-based drug design.</p>
+                        <h3 class="member-name">Grant Bourzikas, MS</h3>
+                        <a href="https://www.linkedin.com/in/grantbourzikas/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Chief Security Officer, Cloudflare • CISO, McAfee, HSBC, Silicon Valley Bank</p>
                     </div>
                 </div>
 
+                <!-- John Santerre -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Lead software architect with expertise in distributed systems and cloud infrastructure.</p>
+                        <h3 class="member-name">John Santerre, PhD</h3>
+                        <a href="https://www.linkedin.com/in/john-santerre-phd-91609b6/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Machine Learning, Deep Learning • AI Researcher/Instructor, Berkeley, NASA • Founder, Silicon Valley Bank AI Lab</p>
                     </div>
                 </div>
 
+                <!-- Christopher Bun -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Data scientist focused on biomarker discovery and patient stratification.</p>
+                        <h3 class="member-name">Christopher Bun, PhD</h3>
+                        <a href="https://www.linkedin.com/in/christopherbun/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Machine Learning, Computational Biology, Cancer Genomics • CSO / CTO, Cancer IQ</p>
                     </div>
                 </div>
 
+                <!-- Robin Prince -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Clinical research expert with extensive experience in trial design and execution.</p>
+                        <h3 class="member-name">Robin Prince, PhD</h3>
+                        <a href="https://www.linkedin.com/in/robin-prince-b3750633/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">DNA Encoded Libraries • Informatics & Molecular Biology, Dice Therapeutics</p>
                     </div>
                 </div>
 
+                <!-- Douglas Beshore -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Machine learning engineer specializing in computer vision and image analysis.</p>
+                        <h3 class="member-name">Douglas Beshore, PhD</h3>
+                        <a href="https://www.linkedin.com/in/douglas-beshore-5035a71a/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Medicinal Chemist • Director, Exelixis • Principal Scientist, Merck</p>
                     </div>
                 </div>
 
+                <!-- Mike Yassa -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Bioinformatics specialist with focus on genomics and proteomics data analysis.</p>
+                        <h3 class="member-name">Mike Yassa, PhD</h3>
+                        <a href="https://linkedin.com/in/mikeyassa" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Neurology, Behavior, Psychiatry • Professor, UC Irvine, Neurobiology • Chief Scientific Officer, Signa Tx</p>
                     </div>
                 </div>
 
+                <!-- Sara Burke -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Systems biology expert specializing in pathway analysis and network modeling.</p>
+                        <h3 class="member-name">Sara Burke, PhD</h3>
+                        <a href="https://www.linkedin.com/in/sara-burke-01baa298/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Neuroscience, Cognitive Aging, Memory • Professor, University of Florida</p>
                     </div>
                 </div>
 
+                <!-- Steven Spear -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Research scientist with expertise in high-throughput screening and assay development.</p>
+                        <h3 class="member-name">Steven Spear, PhD/MEM</h3>
+                        <a href="https://www.linkedin.com/in/stevespear/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Management Systems • High Performance Organization • Senior Lecturer, MIT Sloan</p>
                     </div>
                 </div>
 
+                <!-- Elden Lainez -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">AI researcher focused on reinforcement learning and automated experiment design.</p>
+                        <h3 class="member-name">Elden Lainez</h3>
+                        <a href="https://www.linkedin.com/in/elden-lainez-bba18037/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Lab Operations • Director of Facilities, Moderna • Operations, GSK, AstraZeneca</p>
                     </div>
                 </div>
 
+                <!-- Henk de Jong -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Product manager with background in pharmaceutical development and commercialization.</p>
+                        <h3 class="member-name">Henk de Jong</h3>
+                        <a href="https://linkedin.com/in/henkdejong" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Corporate and Technology Strategy • Entrepreneur, Co-Founder ValueAI Institute • Investor, Venture Partner</p>
                     </div>
                 </div>
 
+                <!-- Ashley Lim -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Regulatory affairs specialist with expertise in FDA/EMA submissions.</p>
+                        <h3 class="member-name">Ashley Lim, MBA</h3>
+                        <a href="https://linkedin.com/in/ashleylim" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Life Sciences Strategy & Business Operations • Supply Chain, Project Management • Boston Consulting Group</p>
                     </div>
                 </div>
 
+                <!-- Chan Hariyan -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Business development lead with extensive pharma industry network.</p>
+                        <h3 class="member-name">Chan Hariyan, PharmD/MBA/MPH</h3>
+                        <a href="https://www.linkedin.com/in/chanharjivan/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Special Assistant to the President, Biological Threats • Managing Director/Partner, BCG, PwC • Operation Warp Speed architect</p>
                     </div>
                 </div>
 
+                <!-- Rebecca Kurnat -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Operations manager specializing in laboratory automation and workflow optimization.</p>
+                        <h3 class="member-name">Rebecca Kurnat, MS</h3>
+                        <a href="https://www.linkedin.com/in/rebecca-kurnat-266316226/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Head of Operations, SaponiQx • Novavax Vaccine Lead, US Government Operation Warp Speed • Technology Selection and Clinical Evaluation, Department of Defense</p>
                     </div>
                 </div>
 
+                <!-- Alph Bingham -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Quality assurance expert with focus on GMP compliance and documentation.</p>
+                        <h3 class="member-name">Alph Bingham, PhD</h3>
+                        <a href="https://www.linkedin.com/in/alph-bingham-1578773/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Senior Pharma Leadership • Collaborative Drug Discovery, InnoCentive • R&D Executive, Eli Lilly</p>
                     </div>
                 </div>
 
+                <!-- Andrew Anderson -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Project manager with experience in multi-site clinical trials coordination.</p>
+                        <h3 class="member-name">Andrew Anderson, MBA</h3>
+                        <a href="https://www.linkedin.com/in/andrew-anderson-173b7a/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Life Sciences Software • VP Innovation, ACD labs</p>
                     </div>
                 </div>
 
+                <!-- Timur Yusufzai -->
                 <div class="team-member">
-                    <img src="images/placeholder.jpg" alt="Team Member Name" class="member-image">
                     <div class="member-info">
-                        <h3 class="member-name">Name Here</h3>
-                        <a href="https://linkedin.com/in/profile" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Data engineer specializing in pipeline development and data infrastructure.</p>
+                        <h3 class="member-name">Timur Yusufzai, PhD</h3>
+                        <a href="https://www.linkedin.com/in/timur-yusufzai-67b22811/" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Life Sciences Entrepreneur • Co-founder, Episode 1, MOMA • EIR, Third Rock Ventures • Faculty, Harvard Medical School</p>
                     </div>
                 </div>
             </div>
