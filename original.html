@@ -85,23 +85,11 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background-image: url('image.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: #003B5C;
+            /* Darker blue to match image */
             position: relative;
             overflow: visible;
             padding: 120px 0;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 59, 92, 0.7);
         }
 
         .hero-content {
@@ -498,9 +486,9 @@
         <div class="container nav-content">
             <a href="#" class="nav-logo">TAP</a>
             <ul class="nav-links">
-                <li><a href="#Focal">A Focal Point for Collaboration</a></li>
                 <li><a href="#technical">Technical Overview</a></li>
-                <li><a href="#innovation">Distributed Innovation</a></li>
+                <li><a href="#foundation">Scientific Foundation</a></li>
+                <li><a href="#platform">Platform</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -522,25 +510,6 @@
                 <div class="value-prop-text">Distributed innovation networks + multi-objective optimization =
                     breakthrough therapeutics</div>
             </div>
-        </div>
-    </section>
-
-    <section id="Focal" class="section">
-        <div class="container">
-            <h2 class="section-title">A Focal Point for Collaboration</h2>
-            <p class="card-text">TAP is an AI-native drug discovery company that serves as a focal point for
-                collaboration in life sciences, growing through purpose-driven networks to accelerate therapeutic
-                discovery. We combine high-performance computing, advanced AI, and global expertise to identify novel
-                molecules with high predictive confidence, systematically reducing false positives and boosting
-                experimental success rates. Our system integrates uncertainty-aware drug design with physics-based
-                simulations and state-of-the-art machine learning, enabling rapid exploration of chemical space through
-                ensemble modeling and reinforcement learning. By orchestrating distributed computing, deep biological
-                expertise across each indication, and strong industry-trained scientists to execute from idea to
-                medicine, we create a powerful engine for data-driven drug discovery. The
-                result: faster insights, better molecules, and fewer costly dead ends—all focused on delivering
-                therapeutics with demonstrable clinical benefit that extend both lifespan and healthspan for patients
-                worldwide.
-            <p>
         </div>
     </section>
 
@@ -610,19 +579,9 @@
 
     <div class="section-separator"></div>
 
-    <section id="innovation" class="section capabilities">
+    <section id="foundation" class="section capabilities">
         <div class="container">
             <h2 class="section-title">Distributed Innovation</h2>
-            <p class="card-text">Distributed innovation represents a paradigm shift from traditional command-and-control
-                models to a collaborative, network-based approach that leverages the collective intelligence of people,
-                institutions, and AI models across the globe. This open innovation framework operates through
-                distributive models that retrieve information from the edges rather than relying on centralized
-                aggregation, enabling dynamic risk distribution among all participants. By viewing the network as a
-                meta-innovation system where orchestration replaces hierarchy, distributed innovation creates the
-                necessary conditions for technologies and science to achieve their exponential potential. This approach
-                serves as a critical alternative to conventional centralized models, providing the agility and
-                collective intelligence needed to address complex challenges in drug discovery and therapeutic
-                development.</p>
 
             <!-- 1. Static: Foundation -->
             <h3 class="section-subtitle">Network Approach</h3>
@@ -665,32 +624,25 @@
                 <div class="capability-card">
                     <div class="capability-icon"></div>
                     <h3 class="capability-title">Portfolio Strategy</h3> <!-- Rebuild -->
-                    <p class="capability-text">We operate dynamic portfolios across multiple therapeutic targets,
-                        continuously optimizing candidate selection through data-driven processes. Our system maintains
-                        active portfolios that are dynamically managed with real-time decisions to pause, purge, or
-                        promote candidates based on emerging data and predictive models. This enables continuous risk
-                        mapping and early false positive detection through strategic "killing experiments" that validate
-                        or eliminate candidates quickly, allowing rapid reallocation of resources to the most promising
-                        candidates while systematically eliminating dead ends.</p>
+                    <p class="capability-text">We pursue portfolios that are driven by partnerships and disease
+                        indications through using focused "Answer Projects" that we spin out. These are formed to
+                        concentrate efforts around specific initiatives. We dynamically create new "Answer Projects" as
+                        opportunities emerge, enabling rapid deployment of our platform across diverse therapeutic
+                        areas.</p>
                 </div>
 
                 <div class="capability-card">
                     <div class="capability-icon"></div>
                     <h3 class="capability-title">Accelerated Timeline</h3>
                     <p class="capability-text">Parallel processing across our network accelerates discovery timelines.
-                        Our learn-fast/kill-fast approach enables rapid decision-making and program advancement, with
-                        continuous flow from target discovery through preclinical and clinical development guided by
-                        empirical loops and computational predictions at each stage.</p>
+                        Our learn-fast/kill-fast approach enables rapid decision-making and program advancement.</p>
                 </div>
 
                 <div class="capability-card">
                     <div class="capability-icon"></div>
                     <h3 class="capability-title">Development Pipeline</h3>
-                    <p class="capability-text">We pursue portfolios that are driven by partnerships and disease
-                        indications through using focused "Answer Projects" that we spin out. These are formed to
-                        concentrate efforts around specific initiatives. We dynamically create new "Answer Projects" as
-                        opportunities emerge, enabling rapid deployment of our platform across diverse therapeutic
-                        areas.</p>
+                    <p class="capability-text">Continuous flow from target discovery through preclinical and clinical
+                        development, with computational predictions guiding each stage.</p>
                 </div>
             </div>
 
@@ -720,32 +672,71 @@
             </div>
 
             <!-- 4. Deploy: External Interface -->
-            <h3 class="section-subtitle">Targeted Deployment</h3>
+            <h3 class="section-subtitle">External Deployment</h3>
             <div class="capabilities-grid">
                 <div class="capability-card">
                     <div class="capability-icon"></div>
-                    <h3 class="capability-title">Partnership Networks</h3>
-                    <p class="capability-text">Our collaborative networks enable multiple paths to commercialization,
-                        providing strategic optionality through diverse partnerships. We engage with stakeholders across
-                        the field to accelerate development programs through active risk mapping, while pursuing
-                        alternative commercialization routes through various industry partnerships. This approach
-                        ensures seamless transition from discovery to clinical development and strategic market access,
-                        maximizing the probability of successful therapeutic deployment while creating value across our
-                        entire network of collaborators.</p>
+                    <h3 class="capability-title">Strategic Partnerships</h3>
+                    <p class="capability-text">Active engagement with pharmaceutical partners, leveraging our platform
+                        to accelerate and de-risk their development programs.</p>
                 </div>
 
+                <div class="capability-card">
+                    <div class="capability-icon"></div>
+                    <h3 class="capability-title">Clinical Translation</h3>
+                    <p class="capability-text">Seamless transition from discovery to clinical development through our
+                        network of clinical research organizations and medical institutions.</p>
+                </div>
+
+                <div class="capability-card">
+                    <div class="capability-icon"></div>
+                    <h3 class="capability-title">Market Interface</h3>
+                    <p class="capability-text">Strategic commercialization through established industry networks,
+                        ensuring successful market access and therapeutic deployment.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <div class="section-separator"></div>
 
+    <section id="platform" class="section">
+        <div class="container">
+            <h2 class="section-title">Platform</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">Distributed Infrastructure</h3>
+                    <p class="card-text">Our platform orchestrates a global network of computational and experimental
+                        capabilities, enabling seamless integration of AI-driven predictions with rapid empirical
+                        validation.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Continuous Learning</h3>
+                    <p class="card-text">Every experimental result feeds back into our AI models, creating a continuous
+                        learning loop that improves predictive accuracy across the entire network.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Strategic Deployment</h3>
+                    <p class="card-text">Seamless transition from discovery to development through our network of
+                        clinical research organizations and industry partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
 
     <section id="team" class="team-section">
         <div class="container">
             <h2 class="section-title">Our Team</h2>
             <div class="team-grid">
                 <!-- Team Member 1 -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Andrew Francis</h3>
+                        <p class="member-bio">Founder • Distributed Innovation • Entrepreneur, Impact Investor</p>
+                    </div>
+                </div>
 
                 <!-- Chan Harjivan -->
                 <div class="team-member">
@@ -803,16 +794,6 @@
                     </div>
                 </div>
 
-                <!-- Douglas Beshore -->
-                <div class="team-member">
-                    <div class="member-info">
-                        <h3 class="member-name">Douglas Beshore, PhD</h3>
-                        <a href="https://www.linkedin.com/in/douglas-beshore-5035a71a/" target="_blank"
-                            class="member-linkedin">View LinkedIn Profile</a>
-                        <p class="member-bio">Medicinal Chemist • Director, Exelixis • Principal Scientist, Merck</p>
-                    </div>
-                </div>
-
                 <!-- Christopher Bun -->
                 <div class="team-member">
                     <div class="member-info">
@@ -834,6 +815,16 @@
                     </div>
                 </div>
 
+                <!-- Amar Sahay -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Amar Sahay, PhD</h3>
+                        <a href="https://www.linkedin.com/in/amar-sahay-57532a2/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Neuroscience, Brain Plasticity • Professor, Harvard Medical School •
+                            Massachusetts General Hospital, BROAD Institute</p>
+                    </div>
+                </div>
 
                 <!-- Grant Bourzikas -->
                 <div class="team-member">
@@ -857,11 +848,37 @@
                     </div>
                 </div>
 
+                <!-- Douglas Beshore -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Douglas Beshore, PhD</h3>
+                        <a href="https://www.linkedin.com/in/douglas-beshore-5035a71a/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Medicinal Chemist • Director, Exelixis • Principal Scientist, Merck</p>
+                    </div>
+                </div>
 
+                <!-- Mike Yassa -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Mike Yassa, PhD</h3>
+                        <a href="https://linkedin.com/in/mikeyassa" target="_blank" class="member-linkedin">View
+                            LinkedIn Profile</a>
+                        <p class="member-bio">Neurology, Behavior, Psychiatry • Professor, UC Irvine, Neurobiology •
+                            Chief Scientific Officer, Signa Tx</p>
+                    </div>
+                </div>
 
-
-
-
+                <!-- Sara Burke -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Sara Burke, PhD</h3>
+                        <a href="https://www.linkedin.com/in/sara-burke-01baa298/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Neuroscience, Cognitive Aging, Memory • Professor, University of Florida
+                        </p>
+                    </div>
+                </div>
 
                 <!-- Steven Spear -->
                 <div class="team-member">
@@ -874,7 +891,16 @@
                     </div>
                 </div>
 
-
+                <!-- Elden Lainez -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Elden Lainez</h3>
+                        <a href="https://www.linkedin.com/in/elden-lainez-bba18037/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Lab Operations • Director of Facilities, Moderna • Operations, GSK,
+                            AstraZeneca</p>
+                    </div>
+                </div>
 
                 <!-- Ashley Lim -->
                 <div class="team-member">
@@ -917,14 +943,6 @@
                             class="member-linkedin">View LinkedIn Profile</a>
                         <p class="member-bio">Life Sciences Entrepreneur • Co-founder, Episode 1, MOMA • EIR, Third Rock
                             Ventures • Faculty, Harvard Medical School</p>
-                    </div>
-                </div>
-
-                <!-- Andrew Francis -->
-                <div class="team-member">
-                    <div class="member-info">
-                        <h3 class="member-name">Andrew Francis</h3>
-                        <p class="member-bio">Founder • Distributed Innovation • Entrepreneur, Impact Investor</p>
                     </div>
                 </div>
             </div>
