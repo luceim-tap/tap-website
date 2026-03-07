@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAP - Deep Technology Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #003B5C;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --background: #f8f9fa;
+            --spacing-unit: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 4);
+            width: 100%;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            padding: calc(var(--spacing-unit) * 2) 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            color: var(--text-light);
+            font-size: 24px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 4);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            position: relative;
+            overflow: visible;
+            padding: 120px 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 59, 92, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            /* Increased for wider text blocks */
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 40px;
+        }
+
+        .hero-title-container {
+            text-align: left;
+            margin-bottom: calc(var(--spacing-unit) * 8);
+            width: 100%;
+        }
+
+        .hero-title {
+            display: block;
+            font-size: 180px;
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            text-align: left;
+        }
+
+        .hero-title-full {
+            font-size: 25px;
+            font-weight: 300;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: left;
+            margin-bottom: calc(var(--spacing-unit) * 8);
+        }
+
+        .hero-subtitle {
+            font-size: 40px;
+            font-weight: 300;
+            color: var(--text-light);
+            max-width: 1100px;
+            margin: 0 0 calc(var(--spacing-unit) * 8);
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .hero-text {
+            font-size: 25px;
+            font-weight: 300;
+            color: var(--text-light);
+            max-width: 1000px;
+            opacity: 0.8;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .section {
+            padding: calc(var(--spacing-unit) * 12) 0;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            letter-spacing: -1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+        }
+
+        .card {
+            background: white;
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .card-text {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 140px;
+            }
+
+            .hero-subtitle {
+                font-size: 42px;
+            }
+
+            .hero-text {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 100px;
+            }
+
+            .hero-subtitle {
+                font-size: 36px;
+            }
+
+            .hero-text {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+        }
+
+
+        /* Network Diagram */
+        .network-diagram {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .network-diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .central-node {
+            fill: var(--primary);
+            stroke: var(--text-light);
+            stroke-width: 3;
+        }
+
+        .computational-node {
+            fill: #00A6ED;
+            stroke: var(--text-light);
+            stroke-width: 2;
+        }
+
+        .experimental-node {
+            fill: #10b981;
+            stroke: var(--text-light);
+            stroke-width: 2;
+        }
+
+        .connection {
+            stroke: var(--primary);
+            stroke-width: 2;
+            stroke-dasharray: 10, 5;
+            opacity: 0.7;
+        }
+
+        .node-text {
+            fill: var(--text-light);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        /* Capabilities Section */
+        .capabilities {
+            padding: calc(var(--spacing-unit) * 12) 0;
+            background: var(--background);
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+            margin-top: calc(var(--spacing-unit) * 8);
+        }
+
+        .capability-card {
+            background: white;
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .capability-icon {
+            display: none;
+        }
+
+        .capability-title {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .capability-text {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Add styles for new elements */
+        .section-subtitle {
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--primary);
+            margin: calc(var(--spacing-unit) * 8) 0 calc(var(--spacing-unit) * 4);
+            letter-spacing: -0.5px;
+        }
+
+        .capability-list {
+            margin-top: calc(var(--spacing-unit) * 2);
+            padding-left: calc(var(--spacing-unit) * 3);
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .capability-list li {
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+
+        /* Adjust spacing for first subtitle */
+        .capabilities .section-subtitle:first-of-type {
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        /* Contact Section Styles */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--text-dark);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+            background: var(--primary);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            background: var(--primary-light);
+        }
+
+        /* Add new styles for value proposition */
+        .value-prop {
+            margin: calc(var(--spacing-unit) * 8) auto 0;
+            padding: calc(var(--spacing-unit) * 4) 0 calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 4);
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
+            max-width: 1000px;
+        }
+
+        .value-prop-text {
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--text-light);
+            opacity: 1;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        /* Team Section Styles */
+        .team-section {
+            background: var(--background);
+            padding: calc(var(--spacing-unit) * 12) 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .team-member {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-info {
+            text-align: center;
+        }
+
+        .member-name {
+            font-size: 1.25rem;
+            color: #333;
+            margin: 0.5rem 0;
+        }
+
+        .member-linkedin {
+            display: inline-block;
+            color: #0077b5;
+            text-decoration: none;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .member-bio {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        /* Section Separator */
+        .section-separator {
+            width: 100%;
+            height: 200px;
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        .section-separator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 59, 92, 0.5);
+            /* Matches primary color with opacity */
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">TAP</a>
+            <ul class="nav-links">
+                <li><a href="#Focal">A Focal Point for Collaboration</a></li>
+                <li><a href="#technical">Technical Overview</a></li>
+
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-title-container">
+                <h1 class="hero-title">TAP</h1>
+                <div class="hero-title-full">THE ANSWER PROJECT</div>
+            </div>
+            <h2 class="hero-subtitle">Deep Tech Discovery powered by distributed innovation</h2>
+            <p class="hero-text">Transforming the way world collaborates on originating, assessing, and advancing
+                critical science,
+                technology, and infrastructure by creating and operating innovation infrastructure and strategic
+                research corporations.</p>
+
+        </div>
+
+    </section>
+
+    <section id="Focal" class="section">
+        <div class="container">
+            <h2 class="section-title">A Focal Point for Collaboration</h2>
+            <p class="card-text">We form,
+                orchestrate, and connect distributed innovation systems with a focus on compounding knowledge, spanning
+                AI, HPC,
+                semiconductors, life sciences, materials science, healthcare, quantum, operations, and
+                finance. These collaborations operate across structures, organizations, disciplines, geographies, and
+                datasets through partnerships that bring critical innovation to market faster and more efficiently.</p>
+
+
+
+
+
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <section id="technical" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Overview</h2>
+            <div class="grid">
+                <div class="capability-card">
+                    <h3 class="capability-title">AI-Native Architecture</h3>
+                    <p class="capability-text">Our system is built from the ground up as AI-native,
+                        orchestrating intelligent networks across deep tech sectors. With state-of-the-art architectures
+                        for pattern recognition, optimization, and multi-modal learning across physical,
+                        digital, and computational spaces,
+                        this introduces breakthrough opportunities through mitigating non-scientific barriers to
+                        innovation, especially coordination problems.</p>
+                </div>
+                <div class="capability-card">
+                    <h3 class="capability-title">Meta-Learning System</h3>
+                    <p class="capability-text">Each collaboration teaches the network how to form better connections,
+                        transforming development into a continuously improving, distributed
+                        intelligence. The system
+                        doesn't just learn about specific technologies—it learns how to optimize the innovation process
+                        itself universally.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3 class="capability-title">Empirical Loop</h3>
+                    <p class="capability-text">Every result across domains feed back into AI models, creating
+                        a
+                        continuous learning loop that improves predictive accuracy across the entire network. Through
+                        rapid empirical validation of computational predictions, results immediately inform model
+                        refinement and next-round predictions. This iterative refinement creates compounding system
+                        intelligence while providing embedded risk management, with orchestration capturing and pushing
+                        feedback to other nodes, improving learning with each cycle and resulting in greater scope for
+                        value creation.</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="container">
+
+
+            <!-- 2. Flow: Dynamic Process -->
+            <h3 class="section-subtitle">Discovery Flow</h3>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon"></div>
+                    <h3 class="capability-title">Portfolio Strategy</h3>
+                    <p class="capability-text">We operate dynamic portfolios across multiple disciplines,
+                        continuously optimizing through our purge-pause-promote framework. Our portfolio decisions are
+                        data enabled, using this framework to end candidates that underperform, pause promising
+                        candidates unready at time of evaluation, and prioritize candidates with future facing
+                        resilience. Paused candidates can be revisited as conditions evolve. The aim is to eliminate and
+                        pause early, preferably pre-formation, creating more scope for breakthroughs at the portfolio
+                        level.</p>
+                </div>
+
+                <div class="capability-card">
+                    <div class="capability-icon"></div>
+                    <h3 class="capability-title">Accelerated Development</h3>
+                    <p class="capability-text">Parallel processing across our network accelerates development
+                        timelines.
+                        Our learn-fast approach enables rapid decision-making and program advancement across domains,
+                        with
+                        continuous flow from concept through development guided by
+                        empirical loops and computational predictions. Using simulations and empirical loops to catch
+                        false positives early gives us more opportunities to succeed while removing obstacles to
+                        high-risk high-potential ideas.</p>
+                </div>
+
+                <div class="capability-card">
+                    <div class="capability-icon"></div>
+                    <h3 class="capability-title">Spin-Out Framework</h3>
+                    <p class="capability-text">Commercially viable companies or IP are spun out through focused
+                        initiatives. Capital recycles into
+                        the Holdco through distributions, portfolio licensing, portfolio exits or portfolio IPOs, while
+                        new spin-outs are dynamically created as
+                        opportunities emerge across the deep tech landscape.</p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+
+                <!-- Chan Harjivan -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Chan Harjivan, PharmD/MBA/MPH</h3>
+                        <a href="https://www.linkedin.com/in/chanharjivan/" target="_blank" class="member-linkedin">View
+                            LinkedIn Profile</a>
+                        <p class="member-bio">Special Assistant to the President, Biological Threats • Managing
+                            Director/Partner, BCG, PwC • Operation Warp Speed architect</p>
+                    </div>
+                </div>
+
+                <!-- Henk de Jong -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Henk de Jong</h3>
+                        <a href="http://linkedin.com/in/henk-de-jong-mnsm" target="_blank" class="member-linkedin">View
+                            LinkedIn Profile</a>
+                        <p class="member-bio">Corporate and Technology Strategy • Entrepreneur, Co-Founder ValueAI
+                            Institute • Investor, Venture Partner</p>
+                    </div>
+                </div>
+
+                <!-- John Baldoni -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">John Baldoni, PhD</h3>
+                        <a href="https://www.linkedin.com/in/john-baldoni-94585520a/" target="_blank"
+                            class="member-linkedin">View
+                            LinkedIn Profile</a>
+                        <p class="member-bio">Senior Pharma Leadership • AI-driven Drug Discovery, Portfolio • Platform
+                            Technology and Science, GSK</p>
+                    </div>
+                </div>
+
+                <!-- John Santerre -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">John Santerre, PhD</h3>
+                        <a href="https://www.linkedin.com/in/john-santerre-phd-91609b6/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Machine Learning, Deep Learning • AI Researcher/Instructor, Berkeley, NASA
+                            • Founder, Silicon Valley Bank AI Lab</p>
+                    </div>
+                </div>
+
+                <!-- Rebecca Kurnat -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Rebecca Kurnat, MS</h3>
+                        <a href="https://www.linkedin.com/in/rebecca-kurnat-266316226/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Head of Operations, SaponiQx • Novavax Vaccine Lead, US Government
+                            Operation Warp Speed • Technology Selection and Clinical Evaluation, Department of Defense
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Douglas Beshore -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Douglas Beshore, PhD</h3>
+                        <a href="https://www.linkedin.com/in/douglas-beshore-5035a71a/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Medicinal Chemist • Director, Exelixis • Principal Scientist, Merck</p>
+                    </div>
+                </div>
+
+                <!-- Christopher Bun -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Christopher Bun, PhD</h3>
+                        <a href="https://www.linkedin.com/in/christopherbun/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Machine Learning, Computational Biology, Cancer Genomics • CSO / CTO,
+                            Cancer IQ</p>
+                    </div>
+                </div>
+
+                <!-- Amit Bhattacharya -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Amit Bhattacharyya, PhD</h3>
+                        <a href="https://www.linkedin.com/in/amitbhattacharyya/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Quantum Computing • Senior Engineer, IonQ • Machine Learning & Physics •
+                            Financial Industry Quant</p>
+                    </div>
+                </div>
+
+                <!-- Saurabha Bhatnagar -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Saurabha Bhatnagar, PhD</h3>
+                        <a href="https://www.linkedin.com/in/sbhatnagarmd/" target="_blank" class="member-linkedin">View
+                            LinkedIn Profile</a>
+                        <p class="member-bio">Physician Executive & Software Engineer • Chief Medical Officer, United
+                            Healthcare, VA • Faculty, Harvard Medical School • Health Tech Turnaround Leader</p>
+                    </div>
+                </div>
+                <!-- Joe Camardo -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Joe Camardo, MD</h3>
+                        <a href="https://www.linkedin.com/in/joe-camardo-3540aa15/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Medical Strategy • CMO, ADC Therapeutics • SVP, Celgene, Pfizer, Wyeth
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Robin Prince -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Robin Prince, PhD</h3>
+                        <a href="https://www.linkedin.com/in/robin-prince-b3750633/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">DNA Encoded Libraries • Informatics & Molecular Biology, Dice
+                            Therapeutics
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <!-- Steven Spear -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Steven Spear, PhD/MEM</h3>
+                        <a href="https://www.linkedin.com/in/stevespear/" target="_blank" class="member-linkedin">View
+                            LinkedIn Profile</a>
+                        <p class="member-bio">Management Systems • High Performance Organization • Senior Lecturer,
+                            MIT
+                            Sloan</p>
+                    </div>
+                </div>
+
+
+
+                <!-- Ashley Lim -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Ashley Lim, MBA</h3>
+                        <a href="https://linkedin.com/in/ashleylim" target="_blank" class="member-linkedin">View
+                            LinkedIn Profile</a>
+                        <p class="member-bio">Life Sciences Strategy & Business Operations • Supply Chain, Project
+                            Management • Boston Consulting Group</p>
+                    </div>
+                </div>
+
+
+                <!-- Alph Bingham -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Alph Bingham, PhD</h3>
+                        <a href="https://www.linkedin.com/in/alph-bingham-1578773/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Senior Pharma Leadership • Collaborative Drug Discovery, InnoCentive •
+                            R&D
+                            Executive, Eli Lilly</p>
+                    </div>
+                </div>
+
+                <!-- Andrew Anderson -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Andrew Anderson, MBA</h3>
+                        <a href="https://www.linkedin.com/in/andrew-anderson-173b7a/" target="_blank"
+                            class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">Life Sciences Software • VP Innovation, ACD labs</p>
+                    </div>
+                </div>
+
+                <!-- Mike Yassa -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Mike Yassa, PhD</h3>
+                        <a href="https://www.linkedin.com/in/michaelyassa/" target="_blank" class="member-linkedin">View
+                            LinkedIn Profile</a>
+                        <p class="member-bio">TAP Neuro</p>
+                    </div>
+                </div>
+
+                <!-- Sara Burke -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Sara Burke, MBA</h3>
+                        <a href="" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">TAP Neuro</p>
+                    </div>
+                </div>
+
+                <!-- Amar Sahay -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Amar Rahay</h3>
+                        <a href="" target="_blank" class="member-linkedin">View LinkedIn Profile</a>
+                        <p class="member-bio">TAP Neuro</p>
+                    </div>
+                </div>
+
+
+
+                <!-- Andrew Francis -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Andrew Francis</h3>
+                        <p class="member-bio">Founder • Distributed Innovation • Entrepreneur, Impact Investor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <p><strong>TAP engages with partners by referral.</strong></p>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
