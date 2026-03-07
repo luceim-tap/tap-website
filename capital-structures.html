@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAP — Capital Structures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #003B5C;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --background: #f8f9fa;
+            --spacing-unit: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 4);
+            width: 100%;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: var(--primary);
+            padding: calc(var(--spacing-unit) * 2) 0;
+            z-index: 100;
+        }
+
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+
+        .nav-logo {
+            color: var(--text-light);
+            font-size: 24px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links { display: flex; gap: calc(var(--spacing-unit) * 4); list-style: none; }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover { opacity: 1; }
+
+        .banner {
+            min-height: 60vh;
+            display: flex;
+            align-items: flex-end;
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 120px 0 60px;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 59, 92, 0.6);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 40px;
+        }
+
+        .banner-eyebrow {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--text-light);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 16px;
+        }
+
+        .banner-title {
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+
+        .banner-subtitle {
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--text-light);
+            max-width: 800px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .section { padding: calc(var(--spacing-unit) * 12) 0; }
+        .section-alt { padding: calc(var(--spacing-unit) * 12) 0; background: #fff; }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            letter-spacing: -1px;
+        }
+
+        .section-lead {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 1.7;
+            max-width: 900px;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: calc(var(--spacing-unit) * 8);
+            align-items: start;
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        .two-col-aside {
+            background: var(--primary);
+            padding: calc(var(--spacing-unit) * 5);
+            border-radius: 6px;
+            color: var(--text-light);
+        }
+
+        .aside-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            letter-spacing: 0.5px;
+        }
+
+        .aside-item {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: calc(var(--spacing-unit) * 2) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            opacity: 0.9;
+        }
+
+        .aside-item:last-child { border-bottom: none; }
+
+        /* Layer cards — distinctive style for the Infrastructure/Asset split */
+        .layer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: calc(var(--spacing-unit) * 5);
+            margin-top: calc(var(--spacing-unit) * 6);
+        }
+
+        .layer-card {
+            border-radius: 6px;
+            padding: calc(var(--spacing-unit) * 5);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .layer-card-infra {
+            background: var(--primary);
+            color: var(--text-light);
+        }
+
+        .layer-card-asset {
+            background: #fff;
+            color: var(--text-dark);
+            border: 2px solid var(--primary);
+        }
+
+        .layer-card-label {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+
+        .layer-card-title {
+            font-size: 26px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .layer-card-infra .layer-card-title { color: var(--text-light); }
+        .layer-card-asset .layer-card-title { color: var(--primary); }
+
+        .layer-card-text {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .layer-card-infra .layer-card-text { opacity: 0.9; }
+
+        .layer-feature {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 8px 0;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .layer-card-asset .layer-feature {
+            border-top-color: rgba(0,59,92,0.12);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+            margin-top: calc(var(--spacing-unit) * 6);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+            margin-top: calc(var(--spacing-unit) * 6);
+        }
+
+        .card {
+            background: var(--background);
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-4px); }
+
+        .card-alt {
+            background: #fff;
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .card-alt:hover { transform: translateY(-4px); }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .card-text {
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+
+        .team-member {
+            background: var(--background);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .team-member:hover { transform: translateY(-4px); }
+
+        .member-name {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .member-linkedin {
+            display: inline-block;
+            color: #0077b5;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-bio {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .section-separator {
+            width: 100%;
+            height: 160px;
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .section-separator::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 59, 92, 0.5);
+        }
+
+        .back-section {
+            padding: calc(var(--spacing-unit) * 6) 0;
+            background: var(--primary);
+            text-align: center;
+        }
+
+        .back-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+
+        .back-link:hover { opacity: 1; }
+
+        .confidential-footer {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 4) 0;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #999;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .banner-title { font-size: 48px; }
+            .two-col { grid-template-columns: 1fr; }
+            .layer-grid { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .section-title { font-size: 32px; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="nav-logo">TAP</a>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="container banner-content">
+            <div class="banner-eyebrow">TAP — The Answer Project</div>
+            <h1 class="banner-title">Capital Structures</h1>
+            <p class="banner-subtitle">Sustained outperformance in deep tech requires financial and organizational innovation to occur in lockstep with technical discovery. TAP's permanent capital structure is itself a competitive advantage.</p>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">Overview</h2>
+            <div class="two-col">
+                <div>
+                    <p class="section-lead">A key tenet of TAP is that sustained outperformance requires financial and organizational innovation to occur in lockstep with technical discovery. Our network approach enables us to continuously originate and match opportunities with appropriate legal and operational capabilities, and financial structures around the world.</p>
+                    <p class="section-lead">We have established partnerships across industry, government laboratories, and academic institutions. Our capital structure solutions formalize this through structures that can absorb money with different but overlapping mandates — creating efficiencies and productive outcomes for all involved.</p>
+                    <p class="section-lead">Our networks exhibit market properties with embedded risk management. We are often one hop away from a strong information base to help evaluate a technology or prospective partner. The idea is to distribute risk to parties in tranches where those best equipped to take the risk can be incentivized to take it while sharing the load with other participants.</p>
+                </div>
+                <div class="two-col-aside">
+                    <div class="aside-title">Structural Principles</div>
+                    <div class="aside-item">Permanent capital — no forced exits at arbitrary fund lifecycles</div>
+                    <div class="aside-item">Holdco + portco separation of infrastructure and assets</div>
+                    <div class="aside-item">Spinout recycling — distributions reinvested continuously</div>
+                    <div class="aside-item">Distributed risk — tranched to parties best equipped to bear it</div>
+                    <div class="aside-item">Overlapping mandates — different capital with aligned incentives</div>
+                    <div class="aside-item">Capital efficiency through abstraction layers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- Capabilities -->
+    <section id="capabilities" class="section">
+        <div class="container">
+            <h2 class="section-title">Capabilities</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="card-title">Distributed Risk</h3>
+                    <p class="card-text">In deep tech, progress requires taking risks — but not concentrating them. TAP's networks distribute risk to parties in tranches where those best equipped to bear it are incentivized to do so, while sharing the load with other participants. This gives us robust mechanisms for origination, evaluation, and execution underpinned by strong incentives.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Spinout Framework</h3>
+                    <p class="card-text">Commercially viable companies or IP are spun out through focused initiatives. Capital recycles into the holdco through distributions, licensing, exits, or IPOs — while new spinouts are dynamically created as opportunities emerge. The holdco compounds in value whether or not any individual spinout succeeds.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Overlapping Mandates</h3>
+                    <p class="card-text">TAP's capital structure is designed to absorb investment with different but aligned mandates — allowing partners with different return profiles, time horizons, and risk tolerances to participate in the same network. This creates efficiencies and productive outcomes that single-mandate vehicles cannot replicate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- Team -->
+    <section id="team" class="section">
+        <div class="container">
+            <h2 class="section-title">Capital Structures Team</h2>
+            <div class="team-grid">
+
+                <div class="team-member">
+                    <h3 class="member-name">Ricardo Bun</h3>
+                    <a href="https://www.linkedin.com/in/ricardo-bun-113bb25/" target="_blank" class="member-linkedin">LinkedIn</a>
+                    <p class="member-bio">Co-Founder &amp; Managing Partner, Orient Growth Ventures • Co-Founder, Monitor Capital Investments &amp; Monitor Capital Partners • LP Advisory Board, B Capital Group • Kellogg School of Management</p>
+                </div>
+
+                <div class="team-member">
+                    <h3 class="member-name">Henk de Jong</h3>
+                    <a href="http://linkedin.com/in/henk-de-jong-mnsm" target="_blank" class="member-linkedin">LinkedIn</a>
+                    <p class="member-bio">Corporate and Technology Strategy • Entrepreneur, Co-Founder ValueAI Institute • Investor, Venture Partner</p>
+                </div>
+
+                <div class="team-member">
+                    <h3 class="member-name">Shiva Rajgopal, PhD</h3>
+                    <a href="https://www.linkedin.com/in/shiva-rajgopal-86aa11136/" target="_blank" class="member-linkedin">LinkedIn</a>
+                    <p class="member-bio">Kester &amp; Byrnes Professor, Columbia Business School • Vice Dean of Research, CBS • ESG, Valuation &amp; Corporate Governance • Schaefer Chair of Accounting, Emory University</p>
+                </div>
+
+                <div class="team-member">
+                    <h3 class="member-name">Robert Brown</h3>
+                    <a href="https://www.linkedin.com/in/robert-brown-8ab80645/" target="_blank" class="member-linkedin">LinkedIn</a>
+                    <p class="member-bio">Founder, Impact Evaluation Lab &amp; Resolution Investors • Founder &amp; Senior Partner, Atlas Impact Partners • Senior Portfolio Manager, AllianceBernstein • Managing Director, Nomura Securities • Executive Director, Global Macro Research, Morgan Stanley</p>
+                </div>
+
+                <div class="team-member">
+                    <h3 class="member-name">Amit Bhattacharyya, PhD</h3>
+                    <a href="https://www.linkedin.com/in/amitbhattacharyya/" target="_blank" class="member-linkedin">LinkedIn</a>
+                    <p class="member-bio">Quantum Computing • Senior Engineer, IonQ • Machine Learning &amp; Physics • Financial Industry Quant</p>
+                </div>
+
+                <div class="team-member">
+                    <h3 class="member-name">Chan Harjivan, PharmD/MBA/MPH</h3>
+                    <a href="https://www.linkedin.com/in/chanharjivan/" target="_blank" class="member-linkedin">LinkedIn</a>
+                    <p class="member-bio">Special Assistant to the President, Biological Threats • Managing Director/Partner, BCG, PwC • Operation Warp Speed architect</p>
+                </div>
+
+                <div class="team-member">
+                    <h3 class="member-name">Mark Anthony Gibbons, MBA/MS</h3>
+                    <a href="https://www.linkedin.com/in/markanthonygibbons/" target="_blank" class="member-linkedin">LinkedIn</a>
+                    <p class="member-bio">Founder, Ember Agentic Labs • Analytics &amp; Data Science Engineering Manager, Google Cloud • FP&amp;A, CapEx planning &amp; financial data architecture • Berkeley MIDS</p>
+                </div>
+
+                <div class="team-member">
+                    <h3 class="member-name">Andrew Francis</h3>
+                    <p class="member-bio">Founder • Distributed Innovation • Entrepreneur, Impact Investor</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="back-section">
+        <a href="index.html" class="back-link">← Back to TAP</a>
+    </div>
+
+    <footer class="confidential-footer">
+        <div class="container">Confidential Memorandum</div>
+    </footer>
+
+</body>
+</html>
